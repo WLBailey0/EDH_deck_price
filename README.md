@@ -1,5 +1,9 @@
 # EDH_deck_price
 
+Determine the price of a deck for MTG EDH. 
+
+Search a card and add it to the deck to see the total price of the deck.
+
 ## Project setup
 ```
 npm install
