@@ -27,4 +27,10 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+body{
+  background-color: #2f3e46;
+
+}
+
 </style>

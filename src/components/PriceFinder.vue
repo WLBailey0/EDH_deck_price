@@ -1,20 +1,22 @@
 <template>
-  <div>
+  <div class="body">
     <h1>Price Finder</h1>
     <form v-on:submit.prevent="getCard">
       <label for="card">Name: </label>
       <input type="text" name="card" id="card" v-model="cardName">
       <input type="submit" value="submit" v-on:click.prevent="getCard()">
     </form>
-    <div>
+    <div class="box">
+    <div class="card">
       <h4>{{card.name}}</h4>
-      <img id="pic" alt="No Picture Found">
+      <img id="pic">
       <input type="button" value="Add" v-on:click="addToList()">
     </div>
-    <div v-for="price in priceList" :key="price.id">
+    </div>
+    <div v-for="price in priceList" :key="price.id" class="picked">
       <p>{{price.name}} | ${{price.prices.usd}}</p>
       <button v-on:click="remove(price.name)">Remove</button>
-      <!-- <img src= card.image_uris.small alt="None Available"> -->
+    
       
     </div>
     <div>
@@ -49,7 +51,7 @@ export default {
       for(let i = 0; i < this.priceList.length; i++){
         this.total += parseFloat(this.priceList[i].prices.usd);
       }
-      return this.total.toFixed(2);
+     
     },
     addToList(){
       this.priceList.push(this.card);
@@ -70,5 +72,26 @@ export default {
 </script>
 
 <style>
+ .body{
+   color: #cad2c5
+   ;
+ }
 
+
+ .card{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+ }
+
+ .picked{
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  width: 400px;
+  height: 75px;
+  margin: auto;
+ }
 </style>
